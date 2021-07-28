@@ -20,7 +20,7 @@ module.exports = {
       DEFAULT: "rgba(204, 187, 155, 0.48)",
     },
     fontFamily: {
-      number: ["AppleGothic", "Candara"],
+      base: ["NagomiGokubosoGothic-ExtraLight", "AppleGothic", "Candara"],
     },
   },
 };
