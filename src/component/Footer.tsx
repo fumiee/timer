@@ -6,7 +6,7 @@ type Props = {
 
 export const Footer: FC<Props> = (props) => {
   return (
-    <footer className="text-sm my-10">
+    <footer className="">
       <button onClick={props.countup}>©yorimaru 2021</button>
     </footer>
   );
