@@ -1,7 +1,4 @@
-import { type } from "node:os";
-import React, { FC, useCallback, useState } from "react";
-import { Footer } from "./Footer";
-import { Timer } from "./Timer";
+import { FC, memo } from "react";
 
 type ITEM = {
   img: string;
@@ -11,6 +8,8 @@ type ITEM = {
 };
 
 const ITEM = [
+  { img: "/photo/prac.svg", title: "お試し", time: 3, solt: "" },
+  { img: "/photo/moyashi.png", title: "もやし", time: 40, solt: "酢塩湯に" },
   {
     img: "/photo/yudetamago.png",
     title: "ゆで卵",
@@ -30,15 +29,15 @@ const ITEM = [
     time: 60,
     solt: "塩湯に",
   },
+  { img: "/photo/komatuna.png", title: "小松菜", time: 40, solt: "塩湯に" },
   { img: "/photo/okura.png", title: "オクラ", time: 60, solt: "塩湯に" },
-  { img: "/photo/komatuna.png", title: "小松菜", time: 5, solt: "塩湯に" },
 ];
 
 type MainProps = {
   handleChange: (timeNum: number) => () => void;
 };
 
-export const Main: FC<MainProps> = (props) => {
+export const Main: FC<MainProps> = memo((props) => {
   return (
     <div className="flex-wrap flex justify-around">
       {ITEM.map((item) => {
@@ -68,4 +67,4 @@ export const Main: FC<MainProps> = (props) => {
       })}
     </div>
   );
-};
+});

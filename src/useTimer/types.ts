@@ -10,6 +10,7 @@ export type Config = {
 export type ReturnValue = {
   pause: () => void;
   start: () => void;
+  reset: (time: number) => void;
   status: Status;
   time: number;
 };

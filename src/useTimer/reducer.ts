@@ -23,12 +23,10 @@ export const reducer = (state: State, action: TimerActionsType): State => {
       };
     }
     case "start": {
-      const { initialTime } = action.payload;
-
       return {
         ...state,
         status: "RUNNING",
-        time: state.status === "STOPPED" ? initialTime : state.time,
+        time: state.time,
       };
     }
     case "stop": {

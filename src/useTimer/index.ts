@@ -23,6 +23,10 @@ export const useTimer = ({
     dispatch({ type: "start", payload: { initialTime } });
   }, [initialTime]);
 
+  const reset = useCallback((resetTime: number) => {
+    dispatch({ type: "reset", payload: { initialTime: resetTime } });
+  }, []);
+
   useEffect(() => {
     dispatch({ type: "reset", payload: { initialTime } });
   }, [initialTime]);
@@ -60,5 +64,5 @@ export const useTimer = ({
     };
   }, [status, interval, time]);
 
-  return { pause, start, status, time };
+  return { pause, start, status, time, reset };
 };
