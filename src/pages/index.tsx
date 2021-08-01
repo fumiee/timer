@@ -1,12 +1,14 @@
 import React, { useCallback, useState } from "react";
-import { Main } from "../component/Main";
-import { Html } from "next/document";
+
+import { bird } from "../../public/bird";
+import { yuderetayo } from "../../public/yuderetayo";
 import { Footer } from "../component/Footer";
+import { Main } from "../component/Main";
+import { StartStop } from "../component/StartStop";
 import { Timer } from "../component/Timer";
 import { useTimer } from "../useTimer";
-import { yuderetayo } from "../../public/yuderetayo";
-import { bird } from "../../public/bird";
-import { StartStop } from "../component/StartStop";
+import Image from "next/image";
+import egg2 from "../../public/photo/egg2.svg";
 
 const Home = () => {
   const [count, setCount] = useState(1);
@@ -32,11 +34,9 @@ const Home = () => {
     <div className="text-center font-base mt-6 flex-col flex min-h-screen">
       <div className="flex-1">
         <div className="relative">
-          <img
-            src="/photo/egg2.svg"
-            alt="たまごの絵"
-            className="mb-20 m-auto"
-          />
+          <div className="mb-20 m-auto">
+            <Image src={egg2} alt="picture of eggs" />
+          </div>
           <header className="absolute top-16 left-0">
             <h1 className="mb-5 text-3xl">ゆでたいまー</h1>
             <p className="text-base">ボタンを押すとタイマーがセット</p>

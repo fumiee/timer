@@ -1,28 +1,15 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  env: {
-    browser: true,
-    es2021: true,
-  },
+  env: { es2021: true, browser: true, jest: true, node: true },
+  plugins: ["simple-import-sort"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "next",
+    "next/core-web-vitals",
     "prettier",
   ],
-  plugins: ["react", "@typescript-eslint"],
+
   parser: "@typescript-eslint/parser",
-  parserOptions: {
-    sourceType: "module",
-    project: "./tsconfig.json",
-  },
-  rules: {
-    // semi: ["error", "always"],
-  },
-  settings: {
-    react: {
-      version: detect,
-    },
-  },
+  parserOptions: { project: "./tsconfig.json" },
 };
