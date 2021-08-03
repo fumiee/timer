@@ -1,14 +1,15 @@
+/* eslint-disable react/jsx-handler-names */
+import Image from "next/image";
 import React, { useCallback, useState } from "react";
 
 import { bird } from "../../public/bird";
+import egg2 from "../../public/photo/egg2.svg";
 import { yuderetayo } from "../../public/yuderetayo";
 import { Footer } from "../component/Footer";
 import { Main } from "../component/Main";
 import { StartStop } from "../component/StartStop";
 import { Timer } from "../component/Timer";
 import { useTimer } from "../useTimer";
-import Image from "next/image";
-import egg2 from "../../public/photo/egg2.svg";
 
 const Home = () => {
   const [count, setCount] = useState(1);
