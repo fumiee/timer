@@ -8,10 +8,11 @@ module.exports = {
     "next",
     "next/core-web-vitals",
     "prettier",
+    "plugin:import/recommended",
   ], //外部パッケージの指定をするとparserOptions,plugins,envなど他部分も描き変わる
 
   parser: "@typescript-eslint/parser",
-  parserOptions: { sourceType: "module" }, //構文のルールの追加
+  parserOptions: { project: "./tsconfig.json", sourceType: "module" }, //構文のルールの追加
   rules: {
     "no-console": ["error", { allow: ["warn", "info", "error"] }], //consoleは書かない
     "prefer-arrow-callback": "error", //アロー関数を使う
@@ -68,6 +69,7 @@ module.exports = {
         aspects: ["invalidHref", "preferButton"],
       },
     ],
+    "import/no-cycle": "error",
   }, //アンダーバーをリンクじゃない所で使用しない
   overrides: [
     {
