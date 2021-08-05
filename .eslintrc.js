@@ -1,6 +1,6 @@
 module.exports = {
   env: { es2021: true, browser: true, jest: true, node: true },
-  plugins: ["simple-import-sort"], //importをアルファベット順に並べ替える
+  plugins: ["import", "simple-import-sort", "react-hooks"], //importをアルファベット順に並べ替える
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",

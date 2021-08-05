@@ -32,18 +32,16 @@ const Home = () => {
   );
 
   return (
-    <div className="text-center font-base mt-6 flex-col flex min-h-screen">
+    <div className="text-center mt-6 flex-col flex min-h-screen font-base text-gray-600">
       <div className="flex-1">
         <div className="relative">
           <div className="mb-20 m-auto">
             <Image src={egg2} alt="picture of eggs" />
           </div>
           <header className="absolute top-16 left-0">
-            <h1 className="mb-5 text-3xl">ゆでたいまー</h1>
-            <p className="text-base">ボタンを押すとタイマーがセット</p>
-            <p className="text-xs mt-1">
-              ※野菜の茹で時間はシャキシャキ時間です。
-            </p>
+            <h1 className="mb-4 text-3xl">ゆでたいまー</h1>
+            <p>ボタンを押すとタイマーがセット</p>
+            <p>野菜の茹で時間はシャキシャキ時間です</p>
             <Timer time={time} />
             <StartStop start={start} pause={pause} />
           </header>

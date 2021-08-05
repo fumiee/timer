@@ -1,4 +1,6 @@
-import { FC, memo } from "react";
+import Image from "next/image";
+import type { FC } from "react";
+import { memo } from "react";
 
 type ITEM = {
   img: string;
@@ -47,16 +49,23 @@ export const Main: FC<MainProps> = memo((props) => {
             className="h-36 w-36 border-4 rounded mt-7 text-sm"
             key={item.title}
           >
-            <p className="mb-2 text-lg">{item.title}</p>
-            <img
+            <p className="mb-2 text-base">{item.title}</p>
+            <Image
               src={item.img}
-              alt=""
-              height="30px"
-              className="w-1/3 m-auto h-12"
+              alt={item.title}
+              height={48}
+              width={48}
+              // className="w-1/3 m-auto h-12"
             />
             <div className="flex justify-center text-center mt-3">
-              <img src="/timer.svg" className="h-4 opacity-30 mt-1" />
-              <div className="text-sm mb-2">
+              <Image
+                src="/timer.svg"
+                alt="logo"
+                height={16}
+                width={16}
+                className="opacity-30"
+              />
+              <div className="text-sm">
                 {" "}
                 {item.solt}
                 {item.time}秒
