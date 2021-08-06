@@ -46,17 +46,11 @@ export const Main: FC<MainProps> = memo((props) => {
         return (
           <button
             onClick={props.handleChange(item.time)}
-            className="h-36 w-36 border-4 rounded mt-7 text-sm"
+            className="h-36 w-36 border-4 rounded mt-7 text-sm focus:ring-4 focus:ring-pushed "
             key={item.title}
           >
             <p className="mb-2 text-base">{item.title}</p>
-            <Image
-              src={item.img}
-              alt={item.title}
-              height={48}
-              width={48}
-              // className="w-1/3 m-auto h-12"
-            />
+            <Image src={item.img} alt={item.title} height={48} width={48} />
             <div className="flex justify-center text-center mt-3">
               <Image
                 src="/timer.svg"

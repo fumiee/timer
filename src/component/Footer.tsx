@@ -1,4 +1,6 @@
-import { FC, memo } from "react";
+/* eslint-disable react/jsx-handler-names */
+import type { FC } from "react";
+import { memo } from "react";
 
 type Props = {
   countup: () => void;
@@ -7,7 +9,9 @@ type Props = {
 export const Footer: FC<Props> = memo((props) => {
   return (
     <footer className="text-sm my-3">
-      <button onClick={props.countup}>©yorimaru 2021</button>
+      <button onClick={props.countup} className="active:bg-footer">
+        ©yorimaru 2021
+      </button>
     </footer>
   );
 });

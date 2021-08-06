@@ -2,9 +2,9 @@
 import Image from "next/image";
 import React, { useCallback, useState } from "react";
 
-import { bird } from "../../public/bird";
 import egg2 from "../../public/photo/egg2.svg";
-import { yuderetayo } from "../../public/yuderetayo";
+import bird from "../../public/sound/bird.mp3";
+import yuderetayo from "../../public/sound/yuderetayo.mp3";
 import { Footer } from "../component/Footer";
 import { Main } from "../component/Main";
 import { StartStop } from "../component/StartStop";

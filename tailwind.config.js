@@ -4,7 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        pink: "#D18181",
+        startstop: "#D18181",
+        startstoped: "#F9A8A8",
+        pushed: "#E4C78C",
+        footer: "#F1D9D9",
       },
       borderRadius: {
         DEFAULT: "50px",
@@ -18,7 +21,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["active"],
+      maxHeight: ["focus"],
+    },
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
 };
