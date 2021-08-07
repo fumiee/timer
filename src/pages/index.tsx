@@ -19,22 +19,22 @@ const useHome = () => {
 
   const { time, start, pause, reset } = useTimer({
     endTime: 0,
-    onTimeOver: () => {
+    onTimeOver: async () => {
       // const foo = new Audio(bird);
       if (!birdSound) return;
       birdSound.muted = false;
       birdSound.currentTime;
-      birdSound.play();
+      await birdSound.play();
     },
   });
 
   const handleChange = useCallback(
-    (timeNum: number) => () => {
+    async (timeNum: number) => {
       if (!birdSound) return;
       // const birdSound = new Audio(bird);
       reset(timeNum);
       birdSound.muted = true;
-      birdSound.play();
+      await birdSound.play();
     },
     [birdSound]
   );

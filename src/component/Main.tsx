@@ -36,7 +36,7 @@ const ITEM = [
 ];
 
 type MainProps = {
-  handleChange: (timeNum: number) => () => void;
+  handleChange: (timeNum: number) => void;
 };
 
 export const Main: FC<MainProps> = memo((props) => {
@@ -45,7 +45,7 @@ export const Main: FC<MainProps> = memo((props) => {
       {ITEM.map((item) => {
         return (
           <button
-            onClick={props.handleChange(item.time)}
+            onClick={() => props.handleChange(item.time)}
             className="h-36 w-36 border-4 rounded mt-7 text-sm focus:ring-4 focus:ring-pushed "
             key={item.title}
           >
