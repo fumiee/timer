@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-handler-names */
 import type { FC } from "react";
 import { memo } from "react";
 

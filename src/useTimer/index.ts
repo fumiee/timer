@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useReducer } from "react";
-import type { Config, ReturnValue } from "./types";
+
 import { reducer } from "./reducer";
+import type { Config, ReturnValue } from "./types";
 
 export const useTimer = ({
   endTime,

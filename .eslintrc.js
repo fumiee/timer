@@ -21,15 +21,6 @@ module.exports = {
     "react/prop-types": "off", //typescriptの場合は不要
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
-    "react/jsx-handler-names": [
-      "warn",
-      {
-        eventHandlerPrefix: "handle",
-        eventHandlerPropPrefix: "on",
-        checkLocalVariables: true,
-        checkInlineFunction: true,
-      },
-    ],
     "react/destructuring-assignment": ["error", "never"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off", //hooksの第二引数が空などを検出

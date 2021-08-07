@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-handler-names */
 import Image from "next/image";
 import React, { useCallback, useState } from "react";
 
@@ -11,7 +10,7 @@ import { StartStop } from "../component/StartStop";
 import { Timer } from "../component/Timer";
 import { useTimer } from "../useTimer";
 
-const Home = () => {
+const useHome = () => {
   const [count, setCount] = useState(1);
   const countup = () => {
     setCount((count) => count + 1);
@@ -20,16 +19,26 @@ const Home = () => {
   const { time, start, pause, reset } = useTimer({
     endTime: 0,
     onTimeOver: () => {
+      const foo = new Audio(bird);
+      foo.currentTime;
       new Audio(count > 5 ? yuderetayo : bird).play();
     },
   });
 
   const handleChange = useCallback(
     (timeNum: number) => () => {
+      const foo = new Audio(bird);
       reset(timeNum);
+      foo.muted = true;
+      foo.play();
     },
     []
   );
+  return { countup, time, start, pause, handleChange };
+};
+
+const Home = () => {
+  const { countup, time, start, pause, handleChange } = useHome();
 
   return (
     <div className="text-center mt-6 flex-col flex min-h-screen font-base text-gray-600">
