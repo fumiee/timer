@@ -20,6 +20,7 @@ const useHome = () => {
     endTime: 0,
     onTimeOver: () => {
       const foo = new Audio(bird);
+      foo.muted = false;
       foo.currentTime;
       new Audio(count > 5 ? yuderetayo : bird).play();
     },
