@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import egg2 from "../../public/photo/egg2.svg";
 import bird from "../../public/sound/bird.mp3";
@@ -12,6 +12,7 @@ import { useTimer } from "../useTimer";
 
 const useHome = () => {
   const [count, setCount] = useState(1);
+  const [birdSound, setBirdSound] = useState<HTMLAudioElement>();
   const countup = () => {
     setCount((count) => count + 1);
   };
@@ -19,22 +20,30 @@ const useHome = () => {
   const { time, start, pause, reset } = useTimer({
     endTime: 0,
     onTimeOver: () => {
-      const foo = new Audio(bird);
-      foo.muted = false;
-      foo.currentTime;
-      new Audio(count > 5 ? yuderetayo : bird).play();
+      // const foo = new Audio(bird);
+      if (!birdSound) return;
+      birdSound.muted = false;
+      birdSound.currentTime;
+      birdSound.play();
     },
   });
 
   const handleChange = useCallback(
     (timeNum: number) => () => {
-      const foo = new Audio(bird);
+      if (!birdSound) return;
+      // const birdSound = new Audio(bird);
       reset(timeNum);
-      foo.muted = true;
-      foo.play();
+      birdSound.muted = true;
+      birdSound.play();
     },
-    []
+    [birdSound]
   );
+
+  useEffect(() => {
+    const audio = new Audio(count > 5 ? yuderetayo : bird);
+    setBirdSound(audio);
+  }, [count]);
+
   return { countup, time, start, pause, handleChange };
 };
 
