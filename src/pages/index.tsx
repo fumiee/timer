@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
+import { animateScroll as scroll } from "react-scroll";
 
 import egg2 from "../../public/photo/egg2.svg";
 import bird from "../../public/sound/bird.mp3";
@@ -12,37 +13,35 @@ import { useTimer } from "../useTimer";
 
 const useHome = () => {
   const [count, setCount] = useState(1);
-  const [birdSound, setBirdSound] = useState<HTMLAudioElement>();
+  const [sound, setSound] = useState<HTMLAudioElement>();
   const countup = () => {
     setCount((count) => count + 1);
   };
+  useEffect(() => {
+    const audio = new Audio(count > 5 ? yuderetayo : bird);
+    setSound(audio);
+  }, [count]);
+
+  const handleChange = useCallback(
+    (timeNum: number) => {
+      if (!sound) return;
+      reset(timeNum);
+      sound.muted = true;
+      sound.play();
+      scroll.scrollToTop();
+    },
+    [sound]
+  );
 
   const { time, start, pause, reset } = useTimer({
     endTime: 0,
     onTimeOver: async () => {
-      // const foo = new Audio(bird);
-      if (!birdSound) return;
-      birdSound.muted = false;
-      birdSound.currentTime;
-      await birdSound.play();
+      if (!sound) return;
+      sound.muted = false;
+      sound.currentTime;
+      sound.play();
     },
   });
-
-  const handleChange = useCallback(
-    async (timeNum: number) => {
-      if (!birdSound) return;
-      // const birdSound = new Audio(bird);
-      reset(timeNum);
-      birdSound.muted = true;
-      await birdSound.play();
-    },
-    [birdSound]
-  );
-
-  useEffect(() => {
-    const audio = new Audio(count > 5 ? yuderetayo : bird);
-    setBirdSound(audio);
-  }, [count]);
 
   return { countup, time, start, pause, handleChange };
 };
